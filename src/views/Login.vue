@@ -124,8 +124,8 @@ async function handleLogin() {
 
 .brand-panel {
   padding: 2.75rem;
-  background: linear-gradient(145deg, rgba(var(--primary-color-rgb), 0.25), rgba(12, 18, 35, 0.85));
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(145deg, rgba(var(--primary-color-rgb), 0.22), rgba(255, 255, 255, 0.95));
+  border-right: 1px solid rgba(var(--primary-color-rgb), 0.2);
 }
 
 .brand-badge {
@@ -136,8 +136,8 @@ async function handleLogin() {
   place-items: center;
   font-size: 2rem;
   margin-bottom: 1rem;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0 0 0 1px rgba(var(--primary-color-rgb), 0.18);
 }
 
 h1 {
@@ -208,7 +208,7 @@ label {
 input {
   width: 100%;
   padding: 0.9rem 1rem 0.9rem 2.55rem;
-  background: rgba(15, 23, 42, 0.45);
+  background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   color: var(--text-main);
@@ -216,7 +216,7 @@ input {
 }
 
 input::placeholder {
-  color: rgba(148, 163, 184, 0.8);
+  color: #9ca3af;
 }
 
 input:focus {
@@ -227,7 +227,7 @@ input:focus {
 
 .error-msg {
   background: rgba(239, 68, 68, 0.1);
-  color: #fca5a5;
+  color: #b91c1c;
   padding: 0.75rem;
   border-radius: var(--radius-md);
   font-size: 0.85rem;
@@ -266,7 +266,7 @@ input:focus {
 
   .brand-panel {
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(var(--primary-color-rgb), 0.2);
     padding-bottom: 2rem;
   }
 
