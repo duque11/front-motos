@@ -200,7 +200,7 @@ function handleLogout() {
   padding: 0.85rem 1rem;
   background: transparent;
   border: none;
-  color: #f87171;
+  color: var(--danger-color);
   font-weight: 700;
   cursor: pointer;
   border-radius: var(--radius-lg);
@@ -209,6 +209,6 @@ function handleLogout() {
 }
 
 .logout-btn:hover {
-  background: rgba(239, 68, 68, 0.1);
+  background: var(--danger-soft-bg);
 }
 </style>

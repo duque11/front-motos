@@ -136,7 +136,7 @@ async function handleLogin() {
   place-items: center;
   font-size: 2rem;
   margin-bottom: 1rem;
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--badge-bg);
   box-shadow: inset 0 0 0 1px rgba(var(--primary-color-rgb), 0.18);
 }
 
@@ -216,7 +216,7 @@ input {
 }
 
 input::placeholder {
-  color: #9ca3af;
+  color: var(--placeholder-color);
 }
 
 input:focus {
@@ -226,13 +226,13 @@ input:focus {
 }
 
 .error-msg {
-  background: rgba(239, 68, 68, 0.1);
-  color: #b91c1c;
+  background: var(--danger-soft-bg);
+  color: var(--danger-color);
   padding: 0.75rem;
   border-radius: var(--radius-md);
   font-size: 0.85rem;
   margin-bottom: 1rem;
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid var(--danger-border);
 }
 
 .btn-primary {
