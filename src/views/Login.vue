@@ -45,109 +45,178 @@ async function handleLogin() {
 
 <template>
   <div class="login-container fade-in">
-    <div class="login-card glass">
-      <div class="logo">🏍️</div>
-      <h1>Taller Duke</h1>
-      <p class="subtitle">Gestión Profesional de Taller</p>
+    <div class="login-shell glass">
+      <aside class="brand-panel">
+        <div class="brand-badge">🏍️</div>
+        <h1>Taller Duke</h1>
+        <p class="subtitle">Gestión Profesional de Taller</p>
+        <ul class="highlights">
+          <li>Control de órdenes y clientes en tiempo real</li>
+          <li>Paneles por rol para una operación más ágil</li>
+          <li>Historial centralizado de servicios y estados</li>
+        </ul>
+      </aside>
 
-      <form @submit.prevent="handleLogin">
-        <div class="input-group">
-          <label>Usuario</label>
-          <input 
-            v-model="username" 
-            type="text" 
-            placeholder="Nombre de usuario" 
-            required 
-            :disabled="loading"
-          />
-        </div>
-        
-        <div class="input-group">
-          <label>Contraseña</label>
-          <input 
-            v-model="password" 
-            type="password" 
-            placeholder="••••••••" 
-            required 
-            :disabled="loading"
-          />
-        </div>
+      <section class="login-card">
+        <h2>Bienvenido de nuevo</h2>
+        <p class="form-subtitle">Inicia sesión para continuar</p>
 
-        <div v-if="error" class="error-msg">{{ error }}</div>
+        <form @submit.prevent="handleLogin">
+          <div class="input-group">
+            <label>Usuario</label>
+            <div class="input-wrapper">
+              <span class="input-icon">👤</span>
+              <input
+                v-model="username"
+                type="text"
+                placeholder="Nombre de usuario"
+                required
+                :disabled="loading"
+              />
+            </div>
+          </div>
 
-        <button type="submit" class="btn-primary" :disabled="loading">
-          {{ loading ? 'Iniciando...' : 'Entrar al Sistema' }}
-        </button>
-      </form>
+          <div class="input-group">
+            <label>Contraseña</label>
+            <div class="input-wrapper">
+              <span class="input-icon">🔒</span>
+              <input
+                v-model="password"
+                type="password"
+                placeholder="••••••••"
+                required
+                :disabled="loading"
+              />
+            </div>
+          </div>
+
+          <div v-if="error" class="error-msg">{{ error }}</div>
+
+          <button type="submit" class="btn-primary" :disabled="loading">
+            {{ loading ? 'Iniciando...' : 'Entrar al Sistema' }}
+          </button>
+        </form>
+      </section>
     </div>
   </div>
 </template>
 
 <style scoped>
 .login-container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1.5rem;
   background: var(--bg-color);
-  background-image: 
-    radial-gradient(circle at top right, rgba(var(--primary-color-rgb), 0.1), transparent),
-    radial-gradient(circle at bottom left, rgba(var(--primary-color-rgb), 0.05), transparent);
+  background-image:
+    radial-gradient(circle at 100% 0%, rgba(var(--primary-color-rgb), 0.18), transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(var(--primary-color-rgb), 0.1), transparent 45%);
 }
 
-.login-card {
-  width: 100%;
-  max-width: 400px;
-  padding: 3rem 2.5rem;
+.login-shell {
+  width: min(960px, 100%);
   border-radius: var(--radius-xl);
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  overflow: hidden;
 }
 
-.logo {
-  font-size: 3.5rem;
+.brand-panel {
+  padding: 2.75rem;
+  background: linear-gradient(145deg, rgba(var(--primary-color-rgb), 0.22), var(--brand-panel-end));
+  border-right: 1px solid rgba(var(--primary-color-rgb), 0.2);
+}
+
+.brand-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
   margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0 0 0 1px rgba(var(--primary-color-rgb), 0.18);
 }
 
 h1 {
-  font-size: 1.75rem;
-  font-weight: 800;
-  margin-bottom: 0.25rem;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
 }
 
 .subtitle {
   color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.4rem;
 }
 
-form {
-  text-align: left;
+.highlights {
+  display: grid;
+  gap: 0.8rem;
+  padding-left: 1.1rem;
+  color: var(--text-main);
+  opacity: 0.9;
+  font-size: 0.92rem;
+}
+
+.login-card {
+  padding: 2.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 1.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.form-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  margin-bottom: 1.75rem;
 }
 
 .input-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.15rem;
 }
 
 label {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: var(--text-secondary);
   margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
 
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.95rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
 input {
   width: 100%;
-  padding: 0.9rem 1.2rem;
-  background: var(--bg-color);
+  padding: 0.9rem 1rem 0.9rem 2.55rem;
+  background: var(--input-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   color: var(--text-main);
   transition: all 0.2s;
+}
+
+input::placeholder {
+  color: #9ca3af;
 }
 
 input:focus {
@@ -158,18 +227,19 @@ input:focus {
 
 .error-msg {
   background: rgba(239, 68, 68, 0.1);
-  color: #f87171;
+  color: #b91c1c;
   padding: 0.75rem;
   border-radius: var(--radius-md);
   font-size: 0.85rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
 .btn-primary {
   width: 100%;
-  padding: 1rem;
-  background: var(--primary-color);
+  margin-top: 0.45rem;
+  padding: 0.95rem;
+  background: var(--primary-gradient);
   color: white;
   border: none;
   border-radius: var(--radius-lg);
@@ -180,12 +250,39 @@ input:focus {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px -5px var(--primary-glow);
+  box-shadow: 0 10px 22px -10px var(--primary-glow);
 }
 
 .btn-primary:disabled {
   opacity: 0.7;
   cursor: not-allowed;
   transform: none;
+}
+
+@media (max-width: 860px) {
+  .login-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-panel {
+    border-right: none;
+    border-bottom: 1px solid rgba(var(--primary-color-rgb), 0.2);
+    padding-bottom: 2rem;
+  }
+
+  .highlights {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .login-container {
+    padding: 0.75rem;
+  }
+
+  .brand-panel,
+  .login-card {
+    padding: 1.5rem;
+  }
 }
 </style>

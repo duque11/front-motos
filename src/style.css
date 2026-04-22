@@ -1,18 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Premium Dark Theme */
-  --bg-color: #030712;
-  --surface-color: #111827;
-  --primary-color: #6366f1;
-  --primary-glow: rgba(99, 102, 241, 0.4);
-  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-  --accent-color: #10b981;
-  --accent-glow: rgba(16, 185, 129, 0.3);
-  --text-main: #f9fafb;
-  --text-secondary: #9ca3af;
-  --border-color: rgba(255, 255, 255, 0.05);
-  --glass-bg: rgba(17, 24, 39, 0.7);
+  /* Day theme (default): White + Green + Red */
+  --bg-color: #f8fff9;
+  --surface-color: #ffffff;
+  --primary-color: #16a34a;
+  --primary-color-rgb: 22, 163, 74;
+  --primary-glow: rgba(22, 163, 74, 0.25);
+  --primary-gradient: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  --accent-color: #dc2626;
+  --accent-glow: rgba(220, 38, 38, 0.25);
+  --text-main: #111827;
+  --text-secondary: #4b5563;
+  --border-color: rgba(17, 24, 39, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --page-overlay-main: rgba(22, 163, 74, 0.16);
+  --page-overlay-accent: rgba(220, 38, 38, 0.12);
+  --page-overlay-center: rgba(255, 255, 255, 0.85);
+  --brand-panel-end: rgba(255, 255, 255, 0.95);
+  --input-bg: #ffffff;
   --radius-xl: 2rem;
   --radius-lg: 1rem;
   --radius-md: 0.75rem;
@@ -21,13 +27,34 @@
   scroll-behavior: smooth;
 }
 
+[data-theme='dark'] {
+  /* Night theme */
+  --bg-color: #07110a;
+  --surface-color: #0f1f14;
+  --primary-color: #22c55e;
+  --primary-color-rgb: 34, 197, 94;
+  --primary-glow: rgba(34, 197, 94, 0.28);
+  --primary-gradient: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  --accent-color: #ef4444;
+  --accent-glow: rgba(239, 68, 68, 0.25);
+  --text-main: #f3f4f6;
+  --text-secondary: #cbd5e1;
+  --border-color: rgba(255, 255, 255, 0.14);
+  --glass-bg: rgba(8, 20, 12, 0.78);
+  --page-overlay-main: rgba(34, 197, 94, 0.18);
+  --page-overlay-accent: rgba(239, 68, 68, 0.12);
+  --page-overlay-center: rgba(6, 14, 9, 0.82);
+  --brand-panel-end: rgba(8, 20, 12, 0.9);
+  --input-bg: rgba(10, 24, 15, 0.88);
+}
+
 body {
   background: var(--bg-color);
   color: var(--text-main);
   background-image:
-    radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.1) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(17, 24, 39, 1) 0%, transparent 100%);
+    radial-gradient(circle at 0% 0%, var(--page-overlay-main) 0%, transparent 42%),
+    radial-gradient(circle at 100% 100%, var(--page-overlay-accent) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, var(--page-overlay-center) 0%, transparent 100%);
   background-attachment: fixed;
   min-height: 100vh;
 }
@@ -38,7 +65,7 @@ body {
   backdrop-filter: blur(10px) saturate(150%);
   -webkit-backdrop-filter: blur(10px) saturate(150%);
   border: 1px solid var(--border-color);
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(22, 163, 74, 0.18);
 }
 
 /* Card Hover FX */
@@ -48,8 +75,8 @@ body {
 
 .card-hover-fx:hover {
   transform: translateY(-8px) scale(1.01);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.6), 0 0 20px rgba(99, 102, 241, 0.1);
+  border-color: rgba(22, 163, 74, 0.35);
+  box-shadow: 0 24px 55px -20px rgba(22, 163, 74, 0.3), 0 0 18px rgba(220, 38, 38, 0.08);
 }
 
 /* Custom Scrollbar Premium */

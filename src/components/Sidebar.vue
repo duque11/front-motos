@@ -138,8 +138,8 @@ function handleLogout() {
 }
 
 .nav-item:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
+  background: rgba(var(--primary-color-rgb), 0.1);
+  color: var(--text-main);
 }
 
 .nav-item.active {
@@ -172,7 +172,7 @@ function handleLogout() {
   align-items: center;
   gap: 1rem;
   padding: 0.85rem 1rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--surface-color);
   border: 1px solid var(--border-color);
   color: var(--text-main);
   font-weight: 700;
